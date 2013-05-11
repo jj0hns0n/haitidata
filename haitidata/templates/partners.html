@@ -1,0 +1,79 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% block title %} {% trans "Partners - HaitiData" %} — {{ block.super }} {% endblock %}
+
+{% block body %}
+  <header class="jumbotron subhead" id="overview">
+    <h1>{% trans "Partner Information and Development Data" %}</h1>
+  </header>
+
+  <p>{% blocktrans %}The following list provides links to websites and reports pertaining to the reconstruction and development of Haiti. 
+It includes links to sites for some of the many International Organizations and Civil Society 
+Organizations (CSO) working in Haiti. An aim is to improve knowledge about who is assisting in doing what, where, to help 
+improve coordination to meet current and future development needs.{% endblocktrans %}</p>
+
+  <p><h4> {% trans "UN System" %}</h4> <ul> <li><a href="http://www.haitispecialenvoy.org/">{% trans "UN Special Envoy to Haiti" %}</a>
+ - {% trans "the most comprehensive coordination resource, with many links to current reports and other organizations. See also" %}: * 
+<a href="http://www.onu-haiti.org/docs/Haiti_Report_E.pdf">{% trans "Report of the United Nations in Haiti, 2010 Situation, Challenges and Outlook [in English]" %}</a><a 
+href="http://www.onu-haiti.org/docs/Haiti_Report_F.pdf"> ; [{% trans "in French" %}]</a> <li><a href="http://www.un.org/en/peacekeeping/missions/minustah/">
+{% trans "United Nations Stabilization Mission in Haiti" %} (MINUSTAH).</a> {% trans "See also" %}: * <a 
+href="http://www.un.org/Depts/Cartographic/map/dpko/minustah.pdf"> MINUSTAH {% trans "mission map" %}</a> <li><a href="http://www.unocha.org/where-we-work/haiti/">
+{% trans "UN Office of Coordination and Humanitarian Affairs (OCHA), Haiti" %}.</a> {% trans "See also" %}: * 
+<a href="http://reliefweb.int/updates/thumb?sl=environment-report_listing%252Ctaxonomy_index_tid_content_format-12%252Ctaxonomy_index_tid_country-113"> 290+ {% trans "OCHA situation maps for Haiti" %}
+</a> <li><a 
+href="http://go.worldbank.org/PF8ERYHLA0">{% trans "World Bank - Haiti" %}</a></li> <li><a href="http://www.ht.undp.org/?lang=en">{% trans "United Nations Development Program (UNDP)" %}</a></li> 
+<li><a href="http://www.who.int/countries/hti/en/">{% trans "World Health Organization (WHO)" %}</a></li> </ul></p> <p>
+<h4> {% trans "Other Partners" %}</h4> <ul><li><a href="http://www.gfdrr.org/gfdrr/Haiti ">{% trans "Global Fund for Disaster Risk Reduction (GFDRR)" %}</a> </li> <li><a 
+href="http://www.iadb.org/en/countries/haiti/hope-for-haiti,1001.html ">{% trans "Inter American Development Bank (IADB)" %}</a>
+</li> <li><a href="http://www.oas.org/en/member_states/haiti/">{% trans "Organization of American States (OAS) in Haiti" %}</a></li> 
+<li><a href="http://www.csohaiti.org/">{% trans "Civil Society Organizations (CSO), Directory" %}</a> - {% trans "noting that this contains link to hundreds of CSOs" %}.</li> <li><a 
+href="http://www.aiddata.org/search/results?recipients=107&keywordSearch= /"><b>{% trans "All" %}</b> {% trans "Donor Projects, Development Gateway platform" %} </a></li> 
+<li><a href="http://www.redcross.org/haiti">{% trans "Red Cross (ICRC)" %} </a></li> <li><a 
+href="http://haiti.ushahidi.com">{% trans "Ushahidi Haiti" %}</a></li> <li><a href="http://www.openstreetmap.org/">{% trans "Open Street Ma" %}p</a></li> 
+</ul></p> <p><h4> {% trans "Haiti Development Data; National Statistics" %}</h4> <ul><li><a 
+href="http://data.worldbank.org/country/haiti/">{% trans "World Bank" %}</a></li> <li><a href="http://data.un.org/Search.aspx?q=haiti">{% trans "U.N. data" %}</a></li>
+</ul></p>
+
+<p> <br /> <br /> </p>
+
+
+  <header class="jumbotron subhead" id="overview">
+    <h1>{% trans "Hazards Information and Haiti-specific Data" %}</h1>
+  </header>       
+
+<p>{% blocktrans %}The following list provides links to data specific to the January 10, 2010 Earthquake 
+as well as more general hazard research information and data sources{% endblocktrans %}.</p> <p><h4> 
+{% trans "Reports, Analysis and Multimedia on the January 10, 2010 Earthquake" %} </h4> <ul> <li>
+<a href="http://www.refondation.ht/index.jsp?&lng=en">{% trans "Government of Haiti portal" %}</a></li> 
+<li><a href= "http://gfdrr.org/docs/Haiti_Multi-Hazard_RiskAssessment_Report_EN.pdf">{% trans "Analysis of Multiple Natural Hazards in Haiti (NATHAT), March 2010 [in English]" %}</a>
+ - {% trans "Analysis for this report underpins the hazards data presented on this site" %}. 
+<a href= "http://gfdrr.org/docs/Haiti_Multi-Hazard_RiskAssessment_Report_FR.pdf">{% trans "[in French]" %}</li> 
+<li><a href="http://supersites.earthobservations.org/haiti.php">{% trans "GEO 'supersite' on the Haiti event" %}</a></li> 
+<li><a href="http://earthquake.usgs.gov/earthquakes/eqinthenews/2010/us2010rja6/ ">{% trans "USGS site on the Haiti event" %}</a></li> 
+<li><a href="http://www.jsg.utexas.edu/news/rels/011310.html">{% trans "University of Texas Austin - GeoSciences, clearing house" %}</a></li> 
+<li><a href="http://iisee.kenken.go.jp/special/20100112haiti.htm ">{% trans "IISEE, seismology, Japan" %}. </a></li> 
+<li><a href="http://tectonics.caltech.edu/slip_history/2010_haiti/index.html"> {% trans "Caltech, seismology finite source model" %}</a></li> <li><a 
+href="http://mceer.buffalo.edu/infoservice/disasters/Haiti-Earthquake-2010.asp ">{% trans "MCEER Univ. Buffalo, New York: facts, engineering, images, and news aggregator" %} </a></li> <li><a 
+href="http://www.eqclearinghouse.org/20100112-haiti/ ">{% trans "EERI virtual clearing house: engineering, multimedia" %}</a></li> 
+<li><a href="http://web.ics.purdue.edu/~ecalais/haiti/">{% trans "University of Purdue, Eric Calais‚ website" %}</a></li> 
+</ul></p> <p><h4> {% trans "Data on the January 10, 2010 Event" %}</h4> <ul> <li><a href="http://cegrp.cga.harvard.edu/haiti/">{% trans "Harvard University Haiti Data Portal" %}</a></li> 
+<li><a href="http://ipler.cis.rit.edu/projects/haiti">{% trans "LiDAR (Light Detection and Ranging) aerial photography data" %}</a></li> 
+<li><a href="http://waspftp.cis.rit.edu/LiDAR_Rasters_DEM_SEM/">{% trans "Digital terrain models for Haiti - LiDAR: DEM/SEM" %}</a></li> <li><a 
+href="http://waspftp.cis.rit.edu/LiDAR_LAS_Files/">{% trans "LAS Point Files (LiDAR)" %}</a></li> 
+<li><a href="http://cires.colorado.edu/~bilham/Haiti/Haiti%20earthquake%20photos/SeaLevelHaiti/GonaveTideGauge.html">
+{% trans "Gauges for sea level and post-seismic vertical movement, Gulf of Gon√†ve" %} </a></li> </ul></p> <p><h4> {% trans "Global and Haiti General Hazards Data" %}</h4> <ul> 
+<li><a href="http://iri.columbia.edu/haiti/">{% trans "Haiti Current Weather and Climate Risk" %}</a></li> <li><a 
+href="http://typhoon.atmos.colostate.edu/Forecasts/2011/april2011/apr2011.pdf ">{% trans "Prognosis for 2011 Hurricane Season for the Atlantic Region" %}</a></li> 
+<li><a href="http://preview.grid.unep.ch/index.php?preview=home&lang=eng "> 
+{% trans "UN Environment Program (UNEP) Global Hazards Data (data-sets downloadable one-by-one)" %} </a></li> 
+<li><a href="http://globalquakemodel.org/about-gem">{% trans "Global Earthquake Model (GEM)" %}</a></li> <li><a 
+href="http://www.gis.harvard.edu/icb/icb.do">{% trans "Harvard Centre for Geographic Analysis" %}</a></li> 
+</ul></p> <p><h4> {% trans "Research and Resources for Hazards Analysis" %}</h4> 
+<ul> <li><a href="http://www.iris.edu/hq/">{% trans "Incorporated Research Institutions for Seismology (IRIS)" %}</a></li> 
+<li><a href="http://docs.lib.noaa.gov/rescue/data_rescue_haiti.html">{% trans "Historical Documents on Haiti Climate and Weather Patterns" %}</a></li> <li><a 
+href="http://www.iris.edu/hq/haiti_workshop/reference"> {% trans "Rebuilding for Resilience Conference 2010" %}</a></li>
+</ul></p>
+
+{% endblock %}
+

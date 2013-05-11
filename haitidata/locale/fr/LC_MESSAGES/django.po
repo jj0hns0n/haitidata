@@ -1,0 +1,689 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-11 13:57-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: templates/about.html:1
+msgid "HaitiData - About"
+msgstr ""
+
+#: templates/about.html:3
+msgid "About HaitiData"
+msgstr ""
+
+#: templates/about.html:7
+msgid ""
+"The purpose of this site is to facilitate open access to Haiti-related geo-"
+"spatial information, data and knowledge sources, \n"
+"encouraging others to share and use them for the development of Haiti.</p> "
+"<p> Geospatial data can \n"
+"be used for many purposes: establishing baseline data, conducting risk "
+"assessments, planning, project monitoring, and tracking \n"
+"progress. Access to high quality information is critical for planners, "
+"policy makers, and other \n"
+"stakeholders involved in the reconstruction process in Haiti. This site is "
+"intended to facilitate more effective support to the \n"
+"country’s rehabilitation, recovery and longer- term sustainable development. "
+"</p> <p> Following \n"
+"the January 12, 2010 earthquake a large amount of geo-spatial data was "
+"created, noting information including earthquake intensity, \n"
+"flooding likelihood, landslide and tsunami hazards, and overall damage. The "
+"enormity of the \n"
+"current need for material assistance, support to reinforce the governance "
+"structure, and innumerable international and local \n"
+"organizations joining to assist in reconstruction and development processes, "
+"also poses a significant \n"
+"challenge to the government and other agent’s ability to coordinate to "
+"benefit the people of Haiti. This site hopes to help \n"
+"inform decision makers at all levels and in all sectors, for now and in "
+"planning for the future, \n"
+"including to manage the risk derived from natural hazards."
+msgstr ""
+
+#: templates/base.html:51
+msgid "Profile"
+msgstr ""
+
+#: templates/base.html:53
+msgid "Admin"
+msgstr ""
+
+#: templates/base.html:56
+msgid "GeoServer"
+msgstr ""
+
+#: templates/base.html:59
+msgid "Log out"
+msgstr ""
+
+#: templates/base.html:64
+msgid "Notifications"
+msgstr ""
+
+#: templates/base.html:65
+msgid "Messages"
+msgstr ""
+
+#: templates/base.html:66
+msgid "Upload"
+msgstr ""
+
+#: templates/base.html:67
+msgid "Help"
+msgstr ""
+
+#: templates/base.html:71 templates/base.html.py:84
+msgid "Sign in"
+msgstr ""
+
+#: templates/base.html:76
+msgid "Username"
+msgstr ""
+
+#: templates/base.html:78
+msgid "Password"
+msgstr ""
+
+#: templates/base.html:82
+msgid "Remember Me"
+msgstr ""
+
+#: templates/base.html:85
+msgid "Don't have an account yet?"
+msgstr ""
+
+#: templates/base.html:85
+msgid "Register now"
+msgstr ""
+
+#: templates/base.html:91
+msgid "or"
+msgstr ""
+
+#: templates/base.html:92
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:113
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:116 templates/people/_profile_list_item.html:17
+msgid "Layers"
+msgstr ""
+
+#: templates/base.html:119 templates/people/_profile_list_item.html:19
+msgid "Maps"
+msgstr ""
+
+#: templates/base.html:124 templates/people/_profile_list_item.html:21
+msgid "Documents"
+msgstr ""
+
+#: templates/base.html:128
+msgid "People"
+msgstr ""
+
+#: templates/base.html:131 templates/search/search.html:6
+#: templates/search/search.html.py:17
+msgid "Search"
+msgstr ""
+
+#: templates/base.html:134
+msgid "Partners"
+msgstr ""
+
+#: templates/base.html:185
+msgid "Powered by"
+msgstr ""
+
+#: templates/base.html:185
+msgid "GeoNode"
+msgstr ""
+
+#: templates/base.html:185
+msgid "version"
+msgstr ""
+
+#: templates/base.html:186
+msgid "Developers"
+msgstr ""
+
+#: templates/base.html:187
+msgid "About"
+msgstr ""
+
+#: templates/base.html:194
+msgid "Language"
+msgstr ""
+
+#: templates/index.html:9
+msgid "Welcome!"
+msgstr ""
+
+#: templates/index.html:17 templates/site_index.html:13
+msgid "Welcome"
+msgstr ""
+
+#: templates/index.html:22
+msgid ""
+"\n"
+"            The purpose of this site is to facilitate open access to Haiti-"
+"related geo-spatial information, data and knowledge sources, encouraging "
+"others to share and use them for the development of Haiti.\n"
+"            "
+msgstr ""
+
+#: templates/index.html:25
+msgid "Read more"
+msgstr ""
+
+#: templates/index.html:28 templates/site_index.html:21
+msgid "Need help"
+msgstr ""
+
+#: templates/index.html:28 templates/site_index.html:21
+msgid "Getting Started?"
+msgstr ""
+
+#: templates/index.html:37 templates/search/_general_filters.html:5
+msgid "Categories"
+msgstr ""
+
+#: templates/index.html:39 templates/site_index.html:25
+#: templates/layers/layer_list.html:9 templates/layers/layer_list.html:20
+msgid "Explore Layers"
+msgstr ""
+
+#: templates/index.html:39 templates/site_index.html:28
+#: templates/maps/map_list.html:19
+msgid "Explore Maps"
+msgstr ""
+
+#: templates/index.html:48
+msgid "Resources and Planning"
+msgstr ""
+
+#: templates/index.html:51
+msgid ""
+"Maps for transportion, health, structure, economy, planning, society, "
+"utilities, and more"
+msgstr ""
+
+#: templates/index.html:55
+msgid "Geography"
+msgstr ""
+
+#: templates/index.html:58
+msgid ""
+"Maps for boundaries, elevation, base imagery, inland waters, oceans, and more"
+msgstr ""
+
+#: templates/index.html:62
+msgid "Locations and Land Use"
+msgstr ""
+
+#: templates/index.html:65
+msgid "Maps for biota, environment, farming, land use, and locations"
+msgstr ""
+
+#: templates/index.html:69
+msgid "Research"
+msgstr ""
+
+#: templates/index.html:72
+msgid ""
+"Maps for climatology, meteorology, atmosphere, and geoscientific information"
+msgstr ""
+
+#: templates/index.html:88
+msgid "Latest Layers"
+msgstr ""
+
+#: templates/index.html:98
+msgid "Contribute"
+msgstr ""
+
+#: templates/index.html:100
+msgid ""
+"\n"
+"              GeoNode enables you to upload, manage, and browse data layers. "
+"Search for data that is valuable to you, or upload your own data. \n"
+"            "
+msgstr ""
+
+#: templates/index.html:103
+msgid "Upload Layers"
+msgstr ""
+
+#: templates/index.html:104
+msgid ""
+"\n"
+"              GeoNode enables you to compose and share maps. Create a map "
+"with our cartography tool, or explore maps shared by others. \n"
+"            "
+msgstr ""
+
+#: templates/index.html:107
+msgid "Create a Map"
+msgstr ""
+
+#: templates/index.html:113
+msgid "Latest Maps"
+msgstr ""
+
+#: templates/partners.html:4
+msgid "Partners - HaitiData"
+msgstr ""
+
+#: templates/partners.html:8
+msgid "Partner Information and Development Data"
+msgstr ""
+
+#: templates/partners.html:11
+msgid ""
+"The following list provides links to websites and reports pertaining to the "
+"reconstruction and development of Haiti. \n"
+"It includes links to sites for some of the many International Organizations "
+"and Civil Society \n"
+"Organizations (CSO) working in Haiti. An aim is to improve knowledge about "
+"who is assisting in doing what, where, to help \n"
+"improve coordination to meet current and future development needs."
+msgstr ""
+
+#: templates/partners.html:16
+msgid "UN System"
+msgstr ""
+
+#: templates/partners.html:16
+msgid "UN Special Envoy to Haiti"
+msgstr ""
+
+#: templates/partners.html:17
+msgid ""
+"the most comprehensive coordination resource, with many links to current "
+"reports and other organizations. See also"
+msgstr ""
+
+#: templates/partners.html:18
+msgid ""
+"Report of the United Nations in Haiti, 2010 Situation, Challenges and "
+"Outlook [in English]"
+msgstr ""
+
+#: templates/partners.html:19
+msgid "in French"
+msgstr ""
+
+#: templates/partners.html:20
+msgid "United Nations Stabilization Mission in Haiti"
+msgstr ""
+
+#: templates/partners.html:20 templates/partners.html.py:22
+msgid "See also"
+msgstr ""
+
+#: templates/partners.html:21
+msgid "mission map"
+msgstr ""
+
+#: templates/partners.html:22
+msgid "UN Office of Coordination and Humanitarian Affairs (OCHA), Haiti"
+msgstr ""
+
+#: templates/partners.html:23
+msgid "OCHA situation maps for Haiti"
+msgstr ""
+
+#: templates/partners.html:25
+msgid "World Bank - Haiti"
+msgstr ""
+
+#: templates/partners.html:25
+msgid "United Nations Development Program (UNDP)"
+msgstr ""
+
+#: templates/partners.html:26
+msgid "World Health Organization (WHO)"
+msgstr ""
+
+#: templates/partners.html:27
+msgid "Other Partners"
+msgstr ""
+
+#: templates/partners.html:27
+msgid "Global Fund for Disaster Risk Reduction (GFDRR)"
+msgstr ""
+
+#: templates/partners.html:28
+msgid "Inter American Development Bank (IADB)"
+msgstr ""
+
+#: templates/partners.html:29
+msgid "Organization of American States (OAS) in Haiti"
+msgstr ""
+
+#: templates/partners.html:30
+msgid "Civil Society Organizations (CSO), Directory"
+msgstr ""
+
+#: templates/partners.html:30
+msgid "noting that this contains link to hundreds of CSOs"
+msgstr ""
+
+#: templates/partners.html:31
+msgid "All"
+msgstr ""
+
+#: templates/partners.html:31
+msgid "Donor Projects, Development Gateway platform"
+msgstr ""
+
+#: templates/partners.html:32
+msgid "Red Cross (ICRC)"
+msgstr ""
+
+#: templates/partners.html:33
+msgid "Ushahidi Haiti"
+msgstr ""
+
+#: templates/partners.html:33
+msgid "Open Street Ma"
+msgstr ""
+
+#: templates/partners.html:34
+msgid "Haiti Development Data; National Statistics"
+msgstr ""
+
+#: templates/partners.html:35
+msgid "World Bank"
+msgstr ""
+
+#: templates/partners.html:35
+msgid "U.N. data"
+msgstr ""
+
+#: templates/partners.html:42
+msgid "Hazards Information and Haiti-specific Data"
+msgstr ""
+
+#: templates/partners.html:45
+msgid ""
+"The following list provides links to data specific to the January 10, 2010 "
+"Earthquake \n"
+"as well as more general hazard research information and data sources"
+msgstr ""
+
+#: templates/partners.html:47
+msgid "Reports, Analysis and Multimedia on the January 10, 2010 Earthquake"
+msgstr ""
+
+#: templates/partners.html:48
+msgid "Government of Haiti portal"
+msgstr ""
+
+#: templates/partners.html:49
+msgid ""
+"Analysis of Multiple Natural Hazards in Haiti (NATHAT), March 2010 [in "
+"English]"
+msgstr ""
+
+#: templates/partners.html:50
+msgid ""
+"Analysis for this report underpins the hazards data presented on this site"
+msgstr ""
+
+#: templates/partners.html:51
+msgid "[in French]"
+msgstr ""
+
+#: templates/partners.html:52
+msgid "GEO 'supersite' on the Haiti event"
+msgstr ""
+
+#: templates/partners.html:53
+msgid "USGS site on the Haiti event"
+msgstr ""
+
+#: templates/partners.html:54
+msgid "University of Texas Austin - GeoSciences, clearing house"
+msgstr ""
+
+#: templates/partners.html:55
+msgid "IISEE, seismology, Japan"
+msgstr ""
+
+#: templates/partners.html:56
+msgid "Caltech, seismology finite source model"
+msgstr ""
+
+#: templates/partners.html:57
+msgid ""
+"MCEER Univ. Buffalo, New York: facts, engineering, images, and news "
+"aggregator"
+msgstr ""
+
+#: templates/partners.html:58
+msgid "EERI virtual clearing house: engineering, multimedia"
+msgstr ""
+
+#: templates/partners.html:59
+msgid "University of Purdue, Eric Calais‚ website"
+msgstr ""
+
+#: templates/partners.html:60
+msgid "Data on the January 10, 2010 Event"
+msgstr ""
+
+#: templates/partners.html:60
+msgid "Harvard University Haiti Data Portal"
+msgstr ""
+
+#: templates/partners.html:61
+msgid "LiDAR (Light Detection and Ranging) aerial photography data"
+msgstr ""
+
+#: templates/partners.html:62
+msgid "Digital terrain models for Haiti - LiDAR: DEM/SEM"
+msgstr ""
+
+#: templates/partners.html:63
+msgid "LAS Point Files (LiDAR)"
+msgstr ""
+
+#: templates/partners.html:65
+msgid ""
+"Gauges for sea level and post-seismic vertical movement, Gulf of Gon√†ve"
+msgstr ""
+
+#: templates/partners.html:65
+msgid "Global and Haiti General Hazards Data"
+msgstr ""
+
+#: templates/partners.html:66
+msgid "Haiti Current Weather and Climate Risk"
+msgstr ""
+
+#: templates/partners.html:67
+msgid "Prognosis for 2011 Hurricane Season for the Atlantic Region"
+msgstr ""
+
+#: templates/partners.html:69
+msgid ""
+"UN Environment Program (UNEP) Global Hazards Data (data-sets downloadable "
+"one-by-one)"
+msgstr ""
+
+#: templates/partners.html:70
+msgid "Global Earthquake Model (GEM)"
+msgstr ""
+
+#: templates/partners.html:71
+msgid "Harvard Centre for Geographic Analysis"
+msgstr ""
+
+#: templates/partners.html:72
+msgid "Research and Resources for Hazards Analysis"
+msgstr ""
+
+#: templates/partners.html:73
+msgid "Incorporated Research Institutions for Seismology (IRIS)"
+msgstr ""
+
+#: templates/partners.html:74
+msgid "Historical Documents on Haiti Climate and Weather Patterns"
+msgstr ""
+
+#: templates/partners.html:75
+msgid "Rebuilding for Resilience Conference 2010"
+msgstr ""
+
+#: templates/site_index.html:17
+msgid ""
+"\n"
+"            GeoNode is an open source platform for sharing geospatial data "
+"and maps.  If you have any questions about the software or service, join our "
+"<a href=\"https://groups.google.com/d/forum/geonode-users\">mailing list</"
+"a>.\n"
+"          "
+msgstr ""
+
+#: templates/documents/document_list.html:7
+#: templates/documents/document_list.html:18
+msgid "Explore Documents"
+msgstr ""
+
+#: templates/documents/document_list.html:33
+#: templates/layers/layer_list.html:35 templates/maps/map_list.html:34
+#: templates/search/search.html:32
+msgid "Your selections"
+msgstr ""
+
+#: templates/documents/document_list.html:34
+#: templates/layers/layer_list.html:36 templates/maps/map_list.html:35
+#: templates/search/search.html:33
+msgid "Clear all"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:11
+msgid "Layer"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:13
+#: templates/maps/_map_list_item.html:10
+msgid "No Image Available"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:18
+#: templates/maps/_map_list_item.html:14 templates/maps/map_download.html:65
+msgid "Download"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:19
+msgid "Create a map"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:22
+#: templates/maps/_map_list_item.html:18
+msgid "from"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:22
+#: templates/maps/_map_list_item.html:18
+msgid "ago"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:24
+#: templates/maps/_map_list_item.html:21
+msgid "view"
+msgstr ""
+
+#: templates/layers/_layer_list_item.html:24
+#: templates/maps/_map_list_item.html:21
+msgid "Average rating"
+msgstr ""
+
+#: templates/maps/_map_list_item.html:8
+msgid "Map"
+msgstr ""
+
+#: templates/maps/map_download.html:67
+msgid ""
+"\n"
+"      Here you can download all the layers of this map that\n"
+"      are hosted on this website.  The following layers will\n"
+"      be downloaded:\n"
+"    "
+msgstr ""
+
+#: templates/maps/map_download.html:85
+msgid ""
+"\n"
+"        Additionally, the map contains these layers which will not be "
+"downloaded\n"
+"        due to security restrictions:\n"
+"      "
+msgstr ""
+
+#: templates/maps/map_download.html:97
+msgid ""
+"\n"
+"        Finally, the map contains these layers which will not be downloaded\n"
+"        because they are not available directly from this website:\n"
+"      "
+msgstr ""
+
+#: templates/maps/map_download.html:115
+msgid "Start downloading this map"
+msgstr ""
+
+#: templates/maps/map_list.html:18
+msgid "Create a New Map"
+msgstr ""
+
+#: templates/people/_profile_list_item.html:30
+msgid "Activities"
+msgstr ""
+
+#: templates/search/_general_filters.html:8
+msgid "All Categories"
+msgstr ""
+
+#: templates/search/_general_filters.html:28
+msgid "Date"
+msgstr ""
+
+#: templates/search/_general_filters.html:30
+msgid "Date begins after"
+msgstr ""
+
+#: templates/search/_general_filters.html:34
+msgid "Date ends before"
+msgstr ""
+
+#: templates/search/_general_filters.html:39
+msgid "Keywords"
+msgstr ""
+
+#: templates/search/search_content.html:4
+msgid "Total"
+msgstr ""
+
+#: templates/search/search_content.html:27
+msgid "No data found"
+msgstr ""

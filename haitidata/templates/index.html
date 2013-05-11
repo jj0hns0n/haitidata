@@ -1,0 +1,131 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load maps_tags %}
+{% load layers_tags %}
+{% load pagination_tags %}
+{% load staticfiles %}
+{% load url from future %}
+
+{% block title %} {% trans "Welcome!" %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_outer %}
+<div class="span12">
+  {% block hero %}
+  <div class="hero-unit">
+    <h1>{% trans "Welcome" %}</h1>
+    <div class="hero-unit-content">
+      <div class="intro">
+      
+        <p>
+            {% blocktrans %}
+            The purpose of this site is to facilitate open access to Haiti-related geo-spatial information, data and knowledge sources, encouraging others to share and use them for the development of Haiti.
+            {% endblocktrans %}
+            <a href="{% url "about" %}">{% trans "Read more" %}</a>
+         
+        </p>
+        <span>{% trans 'Need help' %} <a href="http://geonode.github.com/workshops/user">{% trans 'Getting Started?' %}</a></span>
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <div class="container" style="width: auto;">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" style="line-height: 20px; text-indent: 5px;" href="#">{% trans "Categories" %}</a>
+              <div class="nav-collapse" style="float: right;">
+                <ul class="nav" style="background: #99AABB;"><li><a href="{% url "layer_browse" %}">{% trans "Explore Layers" %}</a></li><li><a href="{% url "maps_browse" %}">{% trans "Explore Maps" %}</a></li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-categories-container">
+          
+            <span class="wrappable">
+            <a href="{% url "search" %}?category=Transportation,Health,Structure,economy,intelligence-military,planning-cadastre,society,utilities-communication" 
+               class="btn btn-category btn-main-category">{% trans "Resources and Planning" %}</a>
+            </span>
+
+            <span class="wrappable main-category-description">{% trans "Maps for transportion, health, structure, economy, planning, society, utilities, and more" %}.</span>
+
+            <span class="wrappable">
+            <a href="{% url "search" %}?category=Boundaries,elevation,imagery-base-maps-earth-cover,inland-waters,oceans" 
+               class="btn btn-category btn-main-category">{% trans "Geography" %}</a>
+            </span>
+
+            <span class="wrappable main-category-description">{% trans "Maps for boundaries, elevation, base imagery, inland waters, oceans, and more" %}.</span>
+
+            <span class="wrappable">
+            <a href="{% url "search" %}?category=Biota,environment,farming,location" 
+               class="btn btn-category btn-main-category">{% trans "Locations and Land Use" %}</a>
+            </span>
+
+            <span class="wrappable main-category-description">{% trans "Maps for biota, environment, farming, land use, and locations" %}.</span>
+
+            <span class="wrappable">
+            <a href="{% url "search" %}?category=climatology-meteorology-atmosphere,geoscientific-information" 
+               class="btn btn-category btn-main-category">{% trans "Research" %}</a>
+            </span>
+          
+            <span class="wrappable main-category-description">{% trans "Maps for climatology, meteorology, atmosphere, and geoscientific information" %}.</span>
+
+        </div>
+
+        <div class="btns">
+        
+          <img src="{{ STATIC_URL }}theme/img/haiti.png" width="385" />
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  {% block mainbody %}
+  <div class="row">
+    <div class="span8">
+      <section class="widget list paginate-contents">
+        <h2>{% trans "Latest Layers" %}</h2>
+        <div class="paginate paginate-auto" id="search-content">
+          {% include 'search/search_content.html' %}
+        </div>
+      </section>
+    </div>
+    <aside class="span4">
+      {% if request.user.is_authenticated %}
+        <div class="well">
+          <section>
+            <h2>{% trans "Contribute" %}</h2>
+            <p class="main-actions">
+            {% blocktrans %}
+              GeoNode enables you to upload, manage, and browse data layers. Search for data that is valuable to you, or upload your own data. 
+            {% endblocktrans %}
+              <a href="{% url "layer_upload" %}" class="btn btn-large">{% trans 'Upload Layers' %}</a>
+            {% blocktrans %}
+              GeoNode enables you to compose and share maps. Create a map with our cartography tool, or explore maps shared by others. 
+            {% endblocktrans %}
+              <a href="{% url "new_map" %}" class="btn btn-large">{% trans 'Create a Map' %}</a>
+            </p>
+          </section>
+        </div>
+      {% endif %}
+      <div class="well">
+        <h2>{% trans "Latest Maps" %}</h2>
+        <section class="article-list">
+          {% featured_maps as featured_maps %}
+          {% for map in featured_maps %}
+            {% include "maps/_map_list_item.html" %}
+          {% endfor %}
+      </div>
+    </aside>
+  </div>
+  {% endblock %}
+</div>
+{% endblock %}
+
+{% block extra_script %}  
+  <script src="{% static "libs/js/waypoints.js" %}"></script>
+  <script src="{% static "libs/js/jquery.raty.js" %}"></script>
+  <script src="{% static "geonode/js/global_search.js" %}"></script>
+  {% include 'rate.js' %}
+{% endblock extra_script %}

@@ -1,0 +1,135 @@
+.nav-logo {
+   width: 204px;
+   height: 50px;
+   background: url(../theme/img/logo-bg.png);
+   background-repeat: no-repeat;
+}
+.navbar .navbar-inner {
+   margin: 0px 0px;
+   background: #d44413;
+   border: 0px;
+}
+.navbar .brand {
+   padding: 10px 0px 10px;
+}
+.navbar .span2 {
+   background: #DFDFDF;
+}
+.navbar .nav.account-bar {
+   margin-top: 0px;
+}
+.navbar .nav > li > a {
+   border-right: 0px;
+   border-left: 0px;
+}
+.navbar .nav.account-bar li.divider-v {
+   padding: 5px 5px 0 0;
+}
+.navbar .container.row {
+   margin-left: -40px;
+}
+.navbar .container .row .row {
+   margin-left: -20px;
+}
+#paneltbar {
+   padding-top: 11px;
+}
+.maps #paneltbar {
+   padding-top: 2px;
+}
+.nav-box {
+   padding: 0px 0;
+   background: #DFDFDF;
+}
+.wrappable {
+   display: inline-block;
+   vertical-align: top;
+}
+.hero-unit .intro .wrappable {
+   display: inline-block;
+}
+ul.social li a {
+   background: white;
+}
+nav.main-nav ul li a {
+   color: #772953;
+}
+.intro-img{
+   width:269px;
+   height:294px;
+   background:url(../theme/img/haiti.png);
+   background-repeat:no-repeat;
+   float:right;
+}
+section.widget h2 {
+   background: #d44413;
+}
+[class*="span"] {
+   margin-left: 20px;
+}
+.hero-unit {
+   padding: 0px 10px 10px 10px; 
+}
+.hero-unit .btns {
+   width: 385px;
+}
+.hero-unit .intro {
+   width: auto;
+}
+.modal {
+   top: 50%;
+}
+.hero-unit .btn {
+   background: #e6e6e6;
+   *background: #d9d9d9;
+}
+.hero-unit .btn-category {
+   width: 200px;
+   height: 35px;
+}
+.hero-unit .btn:hover {
+   color: #333333;
+   background: #e6e6e6;
+}
+.hero-unit .navbar-inner {
+   padding-top: 0px;
+   padding-right: 0px;
+   padding-bottom: 0px;
+   background: #778899;
+}
+.content-wrap {
+   padding: 30px 20px 50px 0px;
+}
+nav.main-nav ul li a {
+   padding: 4px 10px;
+}
+.footer {
+   position: fixed;
+   width: 100%;
+   left: 0px;
+   bottom: 0px;
+   text-align: center;
+}
+html, body {
+   height: 100%;
+}
+.btn-group > .btn-large.dropdown-toggle {
+   padding-left: 8px;
+   padding-right: 8px;
+}
+.btn-group > .btn-large {
+   font-size: 16px;
+}
+.main-category-description {
+   width: 230px;
+   height: 90px;
+   vertical-align: top;
+}
+.main-categories-container {
+   display: inline-block;
+   width: 470px;
+   vertical-align: top;
+}
+.btn-main-category {
+   margin-top: 10px;
+}
