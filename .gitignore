@@ -1,2 +1,10 @@
 *.pyc
 haitidata.egg-info/
+downloaded/
+geoserver/
+
+haitidata/static/.components/
+haitidata/static/geoexplorer/
+haitidata/static_root/
+haitidata/static/node_modules/
+haitidata/static/lib
