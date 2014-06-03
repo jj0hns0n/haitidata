@@ -54,6 +54,36 @@ msgid ""
 "planning for the future, \n"
 "including to manage the risk derived from natural hazards."
 msgstr ""
+"Le but de ce site est de faciliter l’accès libre à de l’information, des "
+"données et des connaissances géospatiales, \n"
+"sur les désastres naturels et sur la vulnérabilité et le risque en Haïti, "
+"ainsi que d’encourager leur partage \n"
+"et leur utilisation. </p>"
+"<p> Les données géospatiales peuvent être utilisées à plusieurs fins : \n"
+"l’établissement de données de base, l’élaboration d’évaluations des risques, la "
+"planification, la surveillance de projets \n"
+"et le suivi de leur avancement. L’accès à de l’information de haute qualité "
+"est critique pour les planificateurs, \n"
+"les décideurs et autres intervenants impliqués dans la reconstruction d’Haïti. "
+"Ce site vise à faciliter un support plus \n"
+"efficace à la réhabilitation, le redressement et le développement durable à "
+"long terme du pays.</p>"
+"<p> Suite au tremblement de terre du 12 janvier 2010, une quantité substantielle de données "
+"géospatiales a été créée, permettant \n"
+"d’évaluer l’intensité du séisme, la probabilité d’inondations, les risques "
+"associés aux glissements de terrain et \n"
+"aux tsunamis ainsi que les dommages, de façon globale. L’énormité du besoin "
+"actuel en assistance matérielle, \n"
+"en support pour le renforcement de la structure de gouvernance ainsi que la "
+"quantité innombrable d’organisations locales \n"
+"et internationales se joignant dans l’assistance aux processus de reconstruction "
+"et de développement, posent également \n"
+"un défi considérable à la capacité du gouvernement et des autres mandataires à se \n"
+"coordonner, afin que le peuple d’Haïti \n"
+"en bénéficie. Ce site souhaite aider à informer les décideurs à tous les "
+"niveaux et dans tous les secteurs, dans \n"
+"l’immédiat ainsi que dans la planification de l’avenir, incluant "
+"la gestion du risque dérivé des hazard naturels."
 
 #: templates/base.html:51
 msgid "Profile"
@@ -213,37 +243,6 @@ msgstr ""
 #: templates/index.html:39 templates/site_index.html:28
 #: templates/maps/map_list.html:19
 msgid "Explore Maps"
-msgstr ""
-
-#: templates/index.html:48
-msgid "Resources and Planning"
-msgstr ""
-
-#: templates/index.html:51
-msgid ""
-"Maps for transportion, health, structure, economy, planning, society, "
-"utilities, and more"
-msgstr ""
-
-#: templates/index.html:55
-msgid "Geography"
-msgstr ""
-
-#: templates/index.html:58
-msgid ""
-"Maps for boundaries, elevation, base imagery, inland waters, oceans, and more"
-msgstr ""
-
-#: templates/index.html:62
-msgid "Locations and Land Use"
-msgstr ""
-
-#: templates/index.html:65
-msgid "Maps for biota, environment, farming, land use, and locations"
-msgstr ""
-
-#: templates/index.html:69
-msgid "Research"
 msgstr ""
 
 #: templates/index.html:72
@@ -687,3 +686,27 @@ msgstr ""
 #: templates/search/search_content.html:27
 msgid "No data found"
 msgstr ""
+
+msgid "Geography"
+msgstr "Géographie"
+
+msgid "Layers for boundaries, elevation, base imagery, inland waters, oceans, and more."
+msgstr "Couches conernant les frontières, l'altitude, l'imagerie de base, les eaux intérieures, les océans, et plus encore."
+
+msgid "Locations and Land Use"
+msgstr "Lieux et Utilisation des Terres"
+
+msgid "Layers for biota, environment, farming, land use, and locations."
+msgstr "Couches conernant le biote, l'environnement, l'agriculture, l'utilisation des terres et des lieux."
+
+msgid "Research"
+msgstr "Recherches"
+
+msgid "Layers for climatology, meteorology, atmosphere, and geoscientific information."
+msgstr "Couches conernant la climatologie, la météorologie, l'atmosphère et l'information géoscientifique."
+
+msgid "Resources and Planning"
+msgstr "Ressources et de la Planification"
+
+msgid "Layers for transportation, health, structure, economy, planning, society, utilities, and more."
+msgstr "Couches conernant le transport, la santé, la structure, l'économie, la planification, la société, les services publics, et plus encore."

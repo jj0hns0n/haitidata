@@ -6,6 +6,7 @@
 {% overall_rating map "map" as map_rating %} {% num_ratings map as num_votes %}
 <article>
   <h3>{% trans "Map" %}</h3>
+  <h5>{% with mapcat=map.category.name %}{% trans mapcat %}{% endwith %}</h5>
   <a href="{% url "map_detail" map.id %}">
     <div class="img-placeholder pl-153-113">{% trans "No Image Available" %}</div>
   </a>

@@ -1,26 +1,45 @@
 {% load i18n %}
 {% load layers_tags %}
 {% load taggit_extras %}
+{% load htlayers_tags %}
 <nav class="filter">
   <h2><a href="#" class="toggle toggle-nav"><i class="icon-chevron-down"></i>{% trans "Categories" %}</a></h2>
   <ul class="nav" id="categories">
-    {% layer_categories as category_list %}
+    {% layer_categories_groups as catgrouplist %}
     <li><a data-class="all" class="active trigger-query">{% trans "All Categories" %}</a></li>
-    {% for category in category_list %}
-    <li><a data-class="{{category.slug}}" class="trigger-query">
-    {% with categoryname=category.name %}
-    {% trans categoryname %}
-    {% endwith %}
-    {% if type == 'layer' %}
-    ({{ category.counts.layers }})
-    {% elif type == 'map' %}
-    ({{ category.counts.maps }})
-    {% elif type == 'document' %}
-    ({{ category.counts.documents }})
-    {% else %}
-    ({{ category.counts.layers|add:category.counts.maps|add:category.counts.documents }})
-    {% endif %}
-    </a></li>
+    {% for catgroup in catgrouplist %}
+    <li><a data-class="{% for categorylink in catgroup.links %}{{ categorylink.base_topiccategory.slug}},{% endfor %}" class="trigger-query groupfilter">
+       {% with categorygroupname=catgroup.name %}
+       {% trans categorygroupname %}
+       {% endwith %}       
+       {% if type == 'layer' %}
+       ({{ catgroup.counts.layers }})
+       {% elif type == 'map' %}
+       ({{ catgroup.counts.maps }})
+       {% elif type == 'document' %}
+       ({{ catgroup.counts.documents }})
+       {% else %}
+       ({{ catgroup.counts.layers|add:catgroup.counts.maps|add:catgroup.counts.documents }})
+       {% endif %}    
+       </a></li>
+       {% for categorylink in catgroup.links %}
+          {% with category=categorylink.base_topiccategory %}
+          <li class="subfilter"><a data-class="{{category.slug}}" class="trigger-query">
+          {% with categoryname=category.name %}
+          {% trans categoryname %}
+          {% endwith %}
+          {% if type == 'layer' %}
+          ({{ category.counts.layers }})
+          {% elif type == 'map' %}
+          ({{ category.counts.maps }})
+          {% elif type == 'document' %}
+          ({{ category.counts.documents }})
+          {% else %}
+          ({{ category.counts.layers|add:category.counts.maps|add:category.counts.documents }})
+          {% endif %}
+          {% endwith %}
+          </a></li>
+       {% endfor %}
     {% endfor %}
   </ul>
 </nav>

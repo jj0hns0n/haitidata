@@ -5,6 +5,7 @@
 {% load pagination_tags %}
 {% load staticfiles %}
 {% load url from future %}
+{% load htlayers_tags %}
 
 {% block title %} {% trans "Welcome!" %} - {{ block.super }} {% endblock %}
 
@@ -43,33 +44,30 @@
         </div>
         <div class="main-categories-container">
           
-            <span class="wrappable">
-            <a href="{% url "search" %}?category=Transportation,Health,Structure,economy,intelligence-military,planning-cadastre,society,utilities-communication" 
-               class="btn btn-category btn-main-category">{% trans "Resources and Planning" %}</a>
-            </span>
+            {% layer_categories_groups as catgrouplist %}
 
-            <span class="wrappable main-category-description">{% trans "Maps for transportion, health, structure, economy, planning, society, utilities, and more" %}.</span>
 
-            <span class="wrappable">
-            <a href="{% url "search" %}?category=Boundaries,elevation,imagery-base-maps-earth-cover,inland-waters,oceans" 
-               class="btn btn-category btn-main-category">{% trans "Geography" %}</a>
-            </span>
+            {% for catgroup in catgrouplist %}
 
-            <span class="wrappable main-category-description">{% trans "Maps for boundaries, elevation, base imagery, inland waters, oceans, and more" %}.</span>
+               <span class="wrappable">
+               <a href="{% url "search" %}?category={% with catgroupcategories=catgroup.links %}{% for link in catgroupcategories %}{{ link.base_topiccategory.slug }},{% endfor %}{% endwith %}" class="btn btn-category btn-main-category">
+               {% with catgroupname=catgroup.name %}
 
-            <span class="wrappable">
-            <a href="{% url "search" %}?category=Biota,environment,farming,location" 
-               class="btn btn-category btn-main-category">{% trans "Locations and Land Use" %}</a>
-            </span>
+                  {% trans catgroupname %}
 
-            <span class="wrappable main-category-description">{% trans "Maps for biota, environment, farming, land use, and locations" %}.</span>
+               {% endwith %}
+               </a>
+               </span>
 
-            <span class="wrappable">
-            <a href="{% url "search" %}?category=climatology-meteorology-atmosphere,geoscientific-information" 
-               class="btn btn-category btn-main-category">{% trans "Research" %}</a>
-            </span>
-          
-            <span class="wrappable main-category-description">{% trans "Maps for climatology, meteorology, atmosphere, and geoscientific information" %}.</span>
+               <span class="wrappable main-category-description">
+               {% with catgroupdesc=catgroup.description %}
+
+               {% trans catgroupdesc %}
+
+               {% endwith %}
+               </span>
+
+            {% endfor %}
 
         </div>
 
@@ -98,11 +96,11 @@
             <h2>{% trans "Contribute" %}</h2>
             <p class="main-actions">
             {% blocktrans %}
-              GeoNode enables you to upload, manage, and browse data layers. Search for data that is valuable to you, or upload your own data. 
+              You may upload, manage, and browse data layers. Search for data that is valuable to you, or upload your own data. 
             {% endblocktrans %}
               <a href="{% url "layer_upload" %}" class="btn btn-large">{% trans 'Upload Layers' %}</a>
             {% blocktrans %}
-              GeoNode enables you to compose and share maps. Create a map with our cartography tool, or explore maps shared by others. 
+              You may compose and share maps. Create a map with our cartography tool, or explore maps shared by others. 
             {% endblocktrans %}
               <a href="{% url "new_map" %}" class="btn btn-large">{% trans 'Create a Map' %}</a>
             </p>
@@ -127,5 +125,4 @@
   <script src="{% static "libs/js/waypoints.js" %}"></script>
   <script src="{% static "libs/js/jquery.raty.js" %}"></script>
   <script src="{% static "geonode/js/global_search.js" %}"></script>
-  {% include 'rate.js' %}
 {% endblock extra_script %}
