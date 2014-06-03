@@ -5,7 +5,7 @@
 {% load pagination_tags %}
 {% load staticfiles %}
 {% load url from future %}
-{% load htlayers_tags %}
+{% load base_tags %}
 
 {% block title %} {% trans "Welcome!" %} - {{ block.super }} {% endblock %}
 
@@ -42,6 +42,7 @@
             </div>
           </div>
         </div>
+        {% comment %}
         <div class="main-categories-container">
           
             {% layer_categories_groups as catgrouplist %}
@@ -70,7 +71,7 @@
             {% endfor %}
 
         </div>
-
+        {% endcomment %}
         <div class="btns">
         
           <img src="{{ STATIC_URL }}theme/img/haiti.png" width="385" />

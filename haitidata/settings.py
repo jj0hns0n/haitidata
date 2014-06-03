@@ -20,7 +20,6 @@
 
 # Django settings for the GeoNode project.
 import os
-import geonode
 
 #
 # General Django development settings
@@ -28,12 +27,16 @@ import geonode
 
 # Defines the directory that contains the settings file as the PROJECT_ROOT
 # It is used for relative settings elsewhere.
-GEONODE_ROOT = os.path.abspath(os.path.dirname(geonode.__file__))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 # Setting debug to true makes Django serve static media and
 # present pretty error pages.
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
+
+# Set to True to load non-minified versions of (static) client dependencies
+# Requires to set-up Node and tools that are required for static development 
+# otherwise it will raise errors for the missing non-minified dependencies
+DEBUG_STATIC = False
 
 # This is needed for integration tests, they require
 # geonode to be listening for GeoServer auth requests.
@@ -44,7 +47,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(PROJECT_ROOT, 'development.db'),
-    }
+    },
+    # vector datastore for uploads
+    #'datastore' : {
+    #    'ENGINE': 'django.contrib.gis.db.backends.postgis',
+    #    'NAME': '',
+    #    'USER' : '',
+    #    'PASSWORD' : '',
+    #    'HOST' : '',
+    #    'PORT' : '',
+    #}
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -56,11 +68,24 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'fr'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
     ('en', 'English'),
+    ('es', 'Español'),
+    ('it', 'Italiano'),
     ('fr', 'Français'),
+    ('de', 'Deutsch'),
+    ('el', 'Ελληνικά'),
+    ('id', 'Bahasa Indonesia'),
+    ('zh-cn', '中文'),
+    ('ja', '日本語'),
+    ('fa', 'Persian'),
+    ('pt', 'Portuguese'),
+    ('ru', 'Russian'),
+    ('vi', 'Vietnamese'),
+    #('fil', 'Filipino'),
+    
 )
 
 # If you set this to False, Django will make some optimizations so as not
@@ -69,7 +94,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(GEONODE_ROOT, "uploaded")
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "uploaded")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -78,7 +103,7 @@ MEDIA_URL = "/uploaded/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
-STATIC_ROOT = os.path.join(GEONODE_ROOT, "static")
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_root")
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
@@ -86,7 +111,7 @@ STATIC_URL = "/static/"
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
-    os.path.join(GEONODE_ROOT, "static"),
+    os.path.join(PROJECT_ROOT, "static"),
 ]
 
 # List of finder classes that know how to find static files in
@@ -100,12 +125,11 @@ STATICFILES_FINDERS = (
 # Note that Django automatically includes the "templates" dir in all the
 # INSTALLED_APPS, se there is no need to add maps/templates or admin/templates
 TEMPLATE_DIRS = (
-    os.path.join(GEONODE_ROOT, "templates"),
+    os.path.join(PROJECT_ROOT, "templates"),
 )
 
 # Location of translation files
 LOCALE_PATHS = (
-    os.path.join(GEONODE_ROOT, "locale"),
     os.path.join(PROJECT_ROOT, "locale"),
 )
 
@@ -122,10 +146,10 @@ SITE_ID = 1
 LOGIN_URL = '/account/login/'
 LOGOUT_URL = '/account/logout/'
 
-# Activate the Documents application
-DOCUMENTS_APP = True
+# Documents application
 ALLOWED_DOCUMENT_TYPES = [
-    'doc', 'docx', 'xls', 'xslx', 'pdf', 'zip', 'jpg', 'jpeg', 'tif', 'tiff', 'png', 'gif', 'txt'
+    'doc', 'docx','gif', 'jpg', 'jpeg', 'ods', 'odt', 'pdf', 'png', 'ppt', 
+    'rar', 'tif', 'tiff', 'txt', 'xls', 'xlsx', 'xml', 'zip', 
 ]
 MAX_DOCUMENT_SIZE = 2 # MB
 
@@ -152,7 +176,7 @@ INSTALLED_APPS = (
     'south',
     'friendlytagloader',
     'geoexplorer',
-    'request',
+    'django_extensions',
 
     # Theme
     "pinax_theme_bootstrap_account",
@@ -167,7 +191,6 @@ INSTALLED_APPS = (
     'notification',
     'announcements',
     'actstream',
-    'relationships',
     'user_messages',
 
     # GeoNode internal apps
@@ -179,12 +202,9 @@ INSTALLED_APPS = (
     'geonode.proxy',
     'geonode.security',
     'geonode.search',
+    'geonode.social',
     'geonode.catalogue',
     'geonode.documents',
-
-    # Haitidata internal apps
-    'haitidata.base',
-
 )
 
 LOGGING = {
@@ -196,6 +216,11 @@ LOGGING = {
         },
         'simple': {
             'format': '%(message)s',        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+     }
     },
     'handlers': {
         'null': {
@@ -209,6 +234,7 @@ LOGGING = {
         },
         'mail_admins': {
             'level': 'ERROR',
+            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
         }
     },
@@ -216,11 +242,6 @@ LOGGING = {
         "django": {
             "handlers": ["console"],
             "level": "ERROR",
-        },
-        "django.request": {
-            "handlers": ["mail_admins"],
-            "level": "ERROR",
-            "propagate": True,
         },
         "geonode": {
             "handlers": ["console"],
@@ -261,6 +282,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'account.context_processors.account',
+    'pinax_theme_bootstrap_account.context_processors.theme',
     # The context processor below adds things like SITEURL
     # and GEOSERVER_BASE_URL to all pages that use a RequestContext
     'geonode.context_processors.resource_urls',
@@ -270,13 +292,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'request.middleware.RequestMiddleware',
     # The setting below makes it possible to serve different languages per
     # user depending on things like headers in HTTP requests.
     'django.middleware.locale.LocaleMiddleware',
     'pagination.middleware.PaginationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # This middleware allows to print private layers for the users that have 
+    # the permissions to view them.
+    # It sets temporary the involved layers as public before restoring the permissions.
+    # Beware that for few seconds the involved layers are public there could be risks.
+    #'geonode.middleware.PrintProxyMiddleware',
 )
 
 
@@ -314,14 +340,17 @@ AGON_RATINGS_CATEGORY_CHOICES = {
     },
     "layers.Layer": {
         "layer": "How good is this layer?"
+    },
+    "documents.Document": {
+        "document": "How good is this document?"
     }
 }
 
 # Activity Stream
 ACTSTREAM_SETTINGS = {
-    'MODELS': ('auth.user', 'layers.layer', 'maps.map'),
+    'MODELS': ('auth.user', 'layers.layer', 'maps.map', 'dialogos.comment', 'documents.document'),
     'FETCH_RELATIONS': True,
-    'USE_PREFETCH': True,
+    'USE_PREFETCH': False,
     'USE_JSONFIELD': True,
     'GFK_FETCH_DEPTH': 1,
 }
@@ -335,6 +364,9 @@ SOUTH_TESTS_MIGRATE=False
 # Settings for Social Apps
 AUTH_PROFILE_MODULE = 'people.Profile'
 REGISTRATION_OPEN = False
+
+# Email for users to contact admins.
+THEME_ACCOUNT_CONTACT_EMAIL = 'admin@example.com'
 
 #
 # Test Settings
@@ -356,14 +388,50 @@ NOSE_ARGS = [
 
 SITEURL = "http://localhost:8000/"
 
-# GeoServer information
+# Default TopicCategory to be used for resources. Use the slug field here
+DEFAULT_TOPICCATEGORY = 'location'
 
-# The FULLY QUALIFIED url to the GeoServer instance for this GeoNode.
-GEOSERVER_BASE_URL = "http://localhost:8080/geoserver/"
+# Topic Categories list should not be modified (they are ISO). In case you 
+# absolutely need it set to True this variable
+MODIFY_TOPICCATEGORY = False
 
-# The username and password for a user that can add and
-# edit layer details on GeoServer
-GEOSERVER_CREDENTIALS = "admin", "geoserver"
+MISSING_THUMBNAIL = 'geonode/img/missing_thumb.png'
+
+# Search Snippet Cache Time in Seconds
+CACHE_TIME=0
+
+# OGC (WMS/WFS/WCS) Server Settings
+OGC_SERVER = {
+    'default' : {
+        'BACKEND' : 'geonode.geoserver',
+        'LOCATION' : 'http://localhost:8080/geoserver/',
+        # PUBLIC_LOCATION needs to be kept like this because in dev mode
+        # the proxy won't work and the integration tests will fail
+        # the entire block has to be overridden in the local_settings
+        'PUBLIC_LOCATION' : 'http://localhost:8080/geoserver/',
+        'USER' : 'admin',
+        'PASSWORD' : 'geoserver',
+        'MAPFISH_PRINT_ENABLED' : True,
+        'PRINTNG_ENABLED' : True,
+        'GEONODE_SECURITY_ENABLED' : True,
+        'GEOGIT_ENABLED' : False,
+        'WMST_ENABLED' : False,
+        'BACKEND_WRITE_ENABLED': True,
+        'WPS_ENABLED' : True,
+        # Set to name of database in DATABASES dictionary to enable
+        'DATASTORE': '', #'datastore',
+        'TIMEOUT': 10  # number of seconds to allow for HTTP requests
+    }
+}
+
+# Uploader Settings
+UPLOADER = {
+    'BACKEND' : 'geonode.rest',
+    'OPTIONS' : {
+        'TIME_ENABLED': False,
+        'GEOGIT_ENABLED': False,
+    }
+}
 
 # CSW settings
 CATALOGUE = {
@@ -444,7 +512,7 @@ DEFAULT_MAP_ZOOM = 0
 MAP_BASELAYERS = [{
     "source": {
         "ptype": "gxp_wmscsource",
-        "url": GEOSERVER_BASE_URL + "wms",
+        "url": OGC_SERVER['default']['PUBLIC_LOCATION'] + "wms",
         "restUrl": "/gs/rest"
      }
   },{
@@ -455,9 +523,9 @@ MAP_BASELAYERS = [{
     "fixed": True,
     "group":"background"
   }, {
-    "source": {"ptype": "gxp_olsource"},
+    "source": {"ptype": "gxp_osmsource"},
     "type":"OpenLayers.Layer.OSM",
-    "args":["OpenStreetMap"],
+    "name":"mapnik",
     "visibility": False,
     "fixed": True,
     "group":"background"
@@ -499,31 +567,46 @@ MAP_BASELAYERS = [{
 
 }]
 
-# GeoNode vector data backend configuration.
-
-#Import uploaded shapefiles into a database such as PostGIS?
-DB_DATASTORE = False
-
-#Database datastore connection settings
-DB_DATASTORE_DATABASE = ''
-DB_DATASTORE_USER = ''
-DB_DATASTORE_PASSWORD = ''
-DB_DATASTORE_HOST = ''
-DB_DATASTORE_PORT = ''
-DB_DATASTORE_TYPE = ''
-DB_DATASTORE_NAME = ''
-
-#The name of the store in Geoserver
-
 LEAFLET_CONFIG = {
     'TILES_URL': 'http://{s}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png'
 }
 
-# Default TopicCategory to be used for resources. Use the slug field here
-DEFAULT_TOPICCATEGORY = 'location' 
+SOCIAL_BUTTONS = True
+
+# Require users to authenticate before using Geonode
+LOCKDOWN_GEONODE = False
+
+# Add additional paths (as regular expressions) that don't require authentication.
+AUTH_EXEMPT_URLS = ()
+
+if LOCKDOWN_GEONODE:
+    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('geonode.security.middleware.LoginRequiredMiddleware',)
+
+
+# A tuple of hosts the proxy can send requests to.
+PROXY_ALLOWED_HOSTS = ()
+
+# The proxy to use when making cross origin requests.
+PROXY_URL = '/proxy/?url='
+
 
 # Load more settings from a file called local_settings.py if it exists
 try:
     from local_settings import *
 except ImportError:
     pass
+
+# Available download formats
+DOWNLOAD_FORMATS_METADATA = [
+    'Atom', 'DIF', 'Dublin Core', 'ebRIM', 'FGDC', 'TC211',
+]
+DOWNLOAD_FORMATS_VECTOR = [
+    'JPEG', 'PDF', 'PNG', 'Zipped Shapefile', 'GML 2.0', 'GML 3.1.1', 'CSV', 
+    'Excel', 'GeoJSON', 'KML', 'View in Google Earth', 'Tiles',
+]
+DOWNLOAD_FORMATS_RASTER = [
+    'JPEG', 'PDF', 'PNG', 'ArcGrid', 'GeoTIFF', 'Gtopo30', 'ImageMosaic', 'KML',
+    'View in Google Earth', 'Tiles',
+]
+
+

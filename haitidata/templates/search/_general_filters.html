@@ -1,10 +1,12 @@
 {% load i18n %}
 {% load layers_tags %}
 {% load taggit_extras %}
-{% load htlayers_tags %}
+{% load base_tags %}
+
 <nav class="filter">
   <h2><a href="#" class="toggle toggle-nav"><i class="icon-chevron-down"></i>{% trans "Categories" %}</a></h2>
   <ul class="nav" id="categories">
+    {% comment %}
     {% layer_categories_groups as catgrouplist %}
     <li><a data-class="all" class="active trigger-query">{% trans "All Categories" %}</a></li>
     {% for catgroup in catgrouplist %}
@@ -42,6 +44,7 @@
        {% endfor %}
     {% endfor %}
   </ul>
+    {% endcomment %}
 </nav>
 <nav class="filter">
   <h2><a href="#" class="toggle toggle-nav"><i class="icon-chevron-down"></i>{% trans "Date" %}</a></h2>
